@@ -1,0 +1,19 @@
+# Compilação e restauração de pacotes
+**/bin/
+**/obj/
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários do editor
+*.tmp

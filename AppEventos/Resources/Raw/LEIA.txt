@@ -1,0 +1,2 @@
+App Eventos - Agenda 15 - ETEC
+Projeto demonstrativo de cadastro de eventos. Nao realiza transacoes financeiras reais.

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Views.ResumoEventoPage"
+             Title="Resumo do evento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Fundo}">
+  <ScrollView>
+    <VerticalStackLayout Padding="16,12,16,18" Spacing="10"
+                         MaximumWidthRequest="560" HorizontalOptions="Center">
+      <Button Text="‹  Voltar ao cadastro" Clicked="OnVoltarClicked"
+              BackgroundColor="Transparent" TextColor="{StaticResource Marinho}"
+              HorizontalOptions="Start" HeightRequest="36" Padding="0,0" FontSize="14" />
+
+      <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0"
+              StrokeShape="RoundRectangle 18" Padding="16,14">
+        <VerticalStackLayout Spacing="5">
+          <Label Text="CADASTRO CONFERIDO" FontSize="11" FontAttributes="Bold"
+                 CharacterSpacing="1.4" TextColor="#F5D697" />
+          <Label Text="Resumo do evento" FontSize="22" FontAttributes="Bold" TextColor="White" />
+          <Label Text="Confira os dados, a duração e o custo total calculado."
+                 FontSize="12" TextColor="#D8E3E8" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Borda}" StrokeThickness="1"
+              StrokeShape="RoundRectangle 16" Padding="15,14">
+        <VerticalStackLayout Spacing="10">
+          <Label Text="EVENTO" FontSize="11" FontAttributes="Bold"
+                 TextColor="{StaticResource Dourado}" CharacterSpacing="1" />
+          <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="21" />
+          <Label Text="{Binding Local}" FontSize="13" TextColor="{StaticResource TextoSecundario}" />
+          <BoxView HeightRequest="1" Color="{StaticResource Borda}" />
+
+          <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                RowSpacing="11" ColumnSpacing="10">
+            <Label Grid.Row="0" Text="Data de início" FontSize="13"
+                   TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding DataInicioFormatada}"
+                   FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+
+            <Label Grid.Row="1" Text="Data de término" FontSize="13"
+                   TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataTerminoFormatada}"
+                   FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+
+            <Label Grid.Row="2" Text="Participantes" FontSize="13"
+                   TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding NumeroParticipantes, StringFormat='{0:0} pessoa(s)'}"
+                   FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+
+            <Label Grid.Row="3" Text="Intervalo entre datas" FontSize="13"
+                   TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding IntervaloFormatado}"
+                   FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+
+            <Label Grid.Row="4" Text="Duração total" FontSize="13"
+                   TextColor="{StaticResource TextoSecundario}" />
+            <Label Grid.Row="4" Grid.Column="1" Text="{Binding DuracaoFormatada}"
+                   FontSize="13" FontAttributes="Bold" HorizontalTextAlignment="End" />
+          </Grid>
+
+          <BoxView HeightRequest="1" Color="{StaticResource Borda}" />
+
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <VerticalStackLayout Spacing="3">
+              <Label Text="CUSTO POR PARTICIPANTE" FontSize="11" FontAttributes="Bold"
+                     TextColor="{StaticResource TextoSecundario}" />
+              <Label Text="{Binding CustoPorParticipanteFormatado}" FontSize="15" FontAttributes="Bold" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="3" HorizontalOptions="End">
+              <Label Text="CUSTO TOTAL" FontSize="11" FontAttributes="Bold"
+                     HorizontalTextAlignment="End" TextColor="{StaticResource TextoSecundario}" />
+              <Label Text="{Binding CustoTotalFormatado}" FontSize="22" FontAttributes="Bold"
+                     HorizontalTextAlignment="End" TextColor="{StaticResource Dourado}" />
+            </VerticalStackLayout>
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="{StaticResource DouradoClaro}" StrokeThickness="0"
+              StrokeShape="RoundRectangle 12" Padding="12,10">
+        <Label Text="Os valores são demonstrativos. Nenhum pagamento ou inscrição real é realizado."
+               FontSize="11" TextColor="{StaticResource Dourado}" HorizontalTextAlignment="Center" />
+      </Border>
+
+      <Button Text="Editar evento" Clicked="OnVoltarClicked"
+              BackgroundColor="{StaticResource Dourado}" TextColor="White"
+              FontSize="14" FontAttributes="Bold" HeightRequest="46" />
+
+      <Label Text="Agenda 15 • Desenvolvimento de Sistemas II • ETEC"
+             FontSize="11" TextColor="{StaticResource TextoSecundario}"
+             HorizontalTextAlignment="Center" />
+      <Label Text="Jefferson Astuti Magalhães de Barros • 2026"
+             FontSize="10" TextColor="{StaticResource TextoSecundario}"
+             HorizontalTextAlignment="Center" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

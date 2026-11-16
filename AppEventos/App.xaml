@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <Color x:Key="Marinho">#152B47</Color>
+      <Color x:Key="Dourado">#94631D</Color>
+      <Color x:Key="DouradoClaro">#FBF1DC</Color>
+      <Color x:Key="Fundo">#F5F7FA</Color>
+      <Color x:Key="Texto">#152B47</Color>
+      <Color x:Key="TextoSecundario">#52657A</Color>
+      <Color x:Key="Borda">#E1E7EF</Color>
+      <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Texto}" />
+      </Style>
+      <Style TargetType="Button">
+        <Setter Property="CornerRadius" Value="13" />
+        <Setter Property="HeightRequest" Value="48" />
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

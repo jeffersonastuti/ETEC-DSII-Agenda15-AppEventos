@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Views.CadastroEventoPage"
+             Title="Cadastro de eventos"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Fundo}">
+  <ScrollView>
+    <VerticalStackLayout Padding="16,12,16,18" Spacing="10"
+                         MaximumWidthRequest="560" HorizontalOptions="Center">
+      <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+        <HorizontalStackLayout Spacing="9" VerticalOptions="Center">
+          <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0"
+                  StrokeShape="RoundRectangle 12" WidthRequest="42" HeightRequest="42">
+            <Label Text="E" TextColor="White" FontAttributes="Bold" FontSize="23"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+          </Border>
+          <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+            <Label Text="APP EVENTOS" FontSize="16" FontAttributes="Bold" CharacterSpacing="1" />
+            <Label Text="AGENDA 15 • ETEC" FontSize="10" TextColor="{StaticResource TextoSecundario}" CharacterSpacing="1" />
+          </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Border Grid.Column="1" BackgroundColor="White" Stroke="{StaticResource Borda}"
+                StrokeShape="RoundRectangle 12" Padding="10,7" VerticalOptions="Center">
+          <Label Text="2026" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource Dourado}" />
+        </Border>
+      </Grid>
+
+      <Border BackgroundColor="{StaticResource Marinho}" StrokeThickness="0"
+              StrokeShape="RoundRectangle 18" Padding="16,14">
+        <VerticalStackLayout Spacing="5">
+          <Label Text="PLANEJE SEU PRÓXIMO EVENTO" TextColor="#F5D697"
+                 FontAttributes="Bold" FontSize="11" CharacterSpacing="1.4" />
+          <Label Text="Cada detalhe faz a diferença." TextColor="White"
+                 FontAttributes="Bold" FontSize="21" LineBreakMode="WordWrap" />
+          <Label Text="Informe os dados e confira o período e o investimento total do seu evento."
+                 TextColor="#D8E3E8" FontSize="12" LineBreakMode="WordWrap" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Label Text="Cadastre seu evento" FontSize="18" FontAttributes="Bold" Margin="1,4,0,0" />
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Borda}" StrokeThickness="1"
+              StrokeShape="RoundRectangle 16" Padding="13,11">
+        <VerticalStackLayout Spacing="7">
+          <Label Text="01   IDENTIFICAÇÃO" TextColor="{StaticResource Dourado}"
+                 FontAttributes="Bold" FontSize="11" CharacterSpacing="1" />
+          <Label Text="Nome do evento" FontAttributes="Bold" FontSize="14" />
+          <Entry x:Name="ent_nome" Text="{Binding Nome, Mode=TwoWay}"
+                 Placeholder="Ex.: Encontro de Tecnologia" MaxLength="120"
+                 BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}"
+                 ClearButtonVisibility="WhileEditing" FontSize="14" HeightRequest="47" />
+          <Label Text="Local do evento" FontAttributes="Bold" FontSize="14" />
+          <Entry x:Name="ent_local" Text="{Binding Local, Mode=TwoWay}"
+                 Placeholder="Ex.: Auditório da ETEC" MaxLength="160"
+                 BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}"
+                 ClearButtonVisibility="WhileEditing" FontSize="14" HeightRequest="47" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Borda}" StrokeThickness="1"
+              StrokeShape="RoundRectangle 16" Padding="13,11">
+        <VerticalStackLayout Spacing="7">
+          <Label Text="02   PERÍODO" TextColor="{StaticResource Dourado}"
+                 FontAttributes="Bold" FontSize="11" CharacterSpacing="1" />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+            <VerticalStackLayout Spacing="5">
+              <Label Text="Data de início" FontAttributes="Bold" FontSize="13" />
+              <DatePicker x:Name="dtp_inicio" Format="dd/MM/yyyy"
+                          Date="{Binding DataInicio, Mode=TwoWay}"
+                          DateSelected="OnInicioDateSelected" HeightRequest="48"
+                          BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}"
+                          FontSize="13" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="5">
+              <Label Text="Data de término" FontAttributes="Bold" FontSize="13" />
+              <DatePicker x:Name="dtp_termino" Format="dd/MM/yyyy"
+                          Date="{Binding DataTermino, Mode=TwoWay}"
+                          HeightRequest="48" BackgroundColor="{StaticResource Fundo}"
+                          TextColor="{StaticResource Texto}" FontSize="13" />
+            </VerticalStackLayout>
+          </Grid>
+          <Label Text="A duração considera também o primeiro e o último dia."
+                 TextColor="{StaticResource TextoSecundario}" FontSize="11" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Borda}" StrokeThickness="1"
+              StrokeShape="RoundRectangle 16" Padding="13,11">
+        <VerticalStackLayout Spacing="7">
+          <Label Text="03   PARTICIPANTES E CUSTOS" TextColor="{StaticResource Dourado}"
+                 FontAttributes="Bold" FontSize="11" CharacterSpacing="1" />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+            <VerticalStackLayout Spacing="5">
+              <Label Text="Nº de participantes" FontAttributes="Bold" FontSize="13" />
+              <Entry x:Name="ent_participantes" Keyboard="Numeric" Text="1"
+                     Placeholder="Ex.: 25" MaxLength="6"
+                     BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}"
+                     FontSize="14" HeightRequest="48" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="5">
+              <Label Text="Custo por participante" FontAttributes="Bold" FontSize="13" />
+              <Entry x:Name="ent_custo" Keyboard="Numeric"
+                     Placeholder="Ex.: 85,50" MaxLength="20"
+                     BackgroundColor="{StaticResource Fundo}" TextColor="{StaticResource Texto}"
+                     FontSize="14" HeightRequest="48" />
+            </VerticalStackLayout>
+          </Grid>
+          <Label Text="Valores em reais (R$). Use vírgula para os centavos."
+                 TextColor="{StaticResource TextoSecundario}" FontSize="11" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Button Text="Ver resumo do evento" Clicked="OnCadastrarClicked"
+              BackgroundColor="{StaticResource Dourado}" TextColor="White"
+              FontAttributes="Bold" FontSize="14" HeightRequest="48" />
+      <Button Text="Limpar campos" Clicked="OnLimparClicked"
+              BackgroundColor="{StaticResource DouradoClaro}" TextColor="{StaticResource Dourado}"
+              FontAttributes="Bold" FontSize="13" HeightRequest="42" />
+
+      <Label Text="Projeto acadêmico • ETEC • Simulação sem cobranças reais"
+             HorizontalTextAlignment="Center" FontSize="11"
+             TextColor="{StaticResource TextoSecundario}" />
+      <Label Text="Desenvolvimento: Jefferson Astuti Magalhães de Barros"
+             HorizontalTextAlignment="Center" FontSize="10"
+             TextColor="{StaticResource TextoSecundario}" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
